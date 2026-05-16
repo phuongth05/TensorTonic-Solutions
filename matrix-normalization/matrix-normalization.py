@@ -8,7 +8,7 @@ def matrix_normalization(matrix, axis=None, norm_type='l2'):
     if matrix is None:
         return None
         
-    matrix = np.array(matrix)
+    matrix = np.array(matrix, dtype=float)
     
     if axis is not None and (axis < 0 or axis >= matrix.ndim):
         return None
@@ -26,7 +26,6 @@ def matrix_normalization(matrix, axis=None, norm_type='l2'):
     else:
         return None
 
-    division[division==0] = 1
-    norm_matrix = matrix / division
+    norm_matrix = np.divide(matrix, division, out=np.zeros_like(matrix), where=division != 0)
     return norm_matrix
     pass
