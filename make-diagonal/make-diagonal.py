@@ -6,12 +6,13 @@ def make_diagonal(v):
     """
     # Write code here
 
-    v = np.array(v)
+    v = np.array(v, dtype=float)
+    n = v.shape[0]
 
-    output = np.zeros((v.shape[0], v.shape[0]))
+    output = np.zeros((n, n), dtype=float)
 
-    for i in range(v.shape[0]):
-        output[i][i] = v[i]
+    for i in range(n):
+        output[i, i] = v[i]
 
     return output
     pass
