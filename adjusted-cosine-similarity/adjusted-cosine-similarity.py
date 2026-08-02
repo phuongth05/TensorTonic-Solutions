@@ -25,7 +25,7 @@ def adjusted_cosine_similarity(ratings_matrix, item_i, item_j):
 
             num += (user[item_i] - r_mean) * (user[item_j] - r_mean)
 
-    den += math.sqrt(sum_i) * math.sqrt(sum_j)
+    den = math.sqrt(sum_i) * math.sqrt(sum_j)
 
     if den == 0:
         return 0.0
